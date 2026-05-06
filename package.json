@@ -50,5 +50,13 @@
     "npm": ">=9.0.0"
   },
   "author": "personal fork for learning purposes",
-  "notes": "forked from hugohe3/ppt-master - using this to learn how the AI slide generation pipeline works. TODO: experiment with different prompt strategies for better slide layouts"
+  "notes": "forked from hugohe3/ppt-master - using this to learn how the AI slide generation pipeline works. TODO: experiment with different prompt strategies for better slide layouts",
+  "personal": {
+    "upstream": "https://github.com/hugohe3/ppt-master",
+    "experiments": [
+      "trying gpt-4o instead of gpt-3.5 for better structured output",
+      "testing different slide count defaults (8 vs 10 slides)",
+      "looking into whether temperature 0.7 vs 0.9 affects layout variety"
+    ]
+  }
 }
