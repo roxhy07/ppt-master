@@ -49,5 +49,6 @@
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
   },
-  "author": "personal fork for learning purposes"
+  "author": "personal fork for learning purposes",
+  "notes": "forked from hugohe3/ppt-master - using this to learn how the AI slide generation pipeline works. TODO: experiment with different prompt strategies for better slide layouts"
 }
