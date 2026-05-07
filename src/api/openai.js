@@ -6,7 +6,7 @@
 import { getConfig } from '../config.js';
 
 const DEFAULT_MODEL = 'gpt-4o';
-const DEFAULT_MAX_TOKENS = 4096;
+const DEFAULT_MAX_TOKENS = 8192; // bumped this up - 4096 kept cutting off longer presentations
 const DEFAULT_TEMPERATURE = 0.7;
 
 /**
@@ -92,55 +92,4 @@ async function chatCompletion(messages, overrides = {}) {
   }
 
   const data = await response.json();
-  return data.choices?.[0]?.message?.content || '';
-}
-
-/**
- * Generate a PPT outline from a topic using OpenAI
- * @param {string} topic - The presentation topic
- * @param {object} options - Generation options
- * @returns {Promise<object>} Parsed outline object
- */
-export async function generateOutline(topic, options = {}) {
-  const messages = [
-    { role: 'system', content: buildSystemPrompt() },
-    { role: 'user', content: buildOutlinePrompt(topic, options) },
-  ];
-
-  const raw = await chatCompletion(messages, { jsonMode: true });
-
-  try {
-    return JSON.parse(raw);
-  } catch (err) {
-    throw new Error(`Failed to parse outline response as JSON: ${err.message}`);
-  }
-}
-
-/**
- * Expand a single slide's content using OpenAI
- * @param {object} slide - Slide object with title and basic content
- * @param {string} presentationContext - Brief context about the full presentation
- * @returns {Promise<object>} Expanded slide object
- */
-export async function expandSlide(slide, presentationContext = '') {
-  const messages = [
-    { role: 'system', content: buildSystemPrompt() },
-    {
-      role: 'user',
-      content: `Expand the following slide with detailed bullet points and speaker notes.
-Presentation context: ${presentationContext}
-
-Slide to expand: ${JSON.stringify(slide)}
-
-Respond with a JSON object with fields: title, bullets (array of strings), notes (string).`,
-    },
-  ];
-
-  const raw = await chatCompletion(messages, { jsonMode: true });
-
-  try {
-    return JSON.parse(raw);
-  } catch (err) {
-    throw new Error(`Failed to parse slide expansion response: ${err.message}`);
-  }
-}
+  return data.choices?.[0]?.m
