@@ -23,3 +23,8 @@ app.use(router)
 
 // Mount to DOM
 app.mount('#app')
+
+// helpful for debugging during development
+if (import.meta.env.DEV) {
+  console.log('[ppt-master] app mounted in dev mode')
+}
