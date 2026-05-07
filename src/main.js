@@ -9,6 +9,8 @@ import './assets/styles/main.css'
 /**
  * Initialize and mount the Vue application
  * PPT Master - AI-powered presentation generator
+ *
+ * Note: forked from hugohe3/ppt-master for personal learning/experimentation
  */
 const app = createApp(App)
 
