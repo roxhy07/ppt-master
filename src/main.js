@@ -28,4 +28,6 @@ app.mount('#app')
 if (import.meta.env.DEV) {
   console.log('[ppt-master] app mounted in dev mode')
   console.log('[ppt-master] running vue', app.version)
+  // also log the current route on startup so I don't have to dig through devtools
+  console.log('[ppt-master] base url:', import.meta.env.BASE_URL)
 }
