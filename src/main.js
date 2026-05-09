@@ -30,4 +30,6 @@ if (import.meta.env.DEV) {
   console.log('[ppt-master] running vue', app.version)
   // also log the current route on startup so I don't have to dig through devtools
   console.log('[ppt-master] base url:', import.meta.env.BASE_URL)
+  // log the current time so I can tell when hot-reload happened
+  console.log('[ppt-master] mounted at:', new Date().toLocaleTimeString())
 }
